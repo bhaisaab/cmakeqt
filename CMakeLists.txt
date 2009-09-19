@@ -11,3 +11,4 @@ include_directories(${QT4_INCLUDE_DIR})
 
 #Recursively add sub dirs
 add_subdirectory(src)
+
