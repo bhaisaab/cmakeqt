@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!-- Credits: Rohit Yadav (rohityadav89 AT gmail.com) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="41.715549"
+   height="48.000004"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   version="1.0"
+   sodipodi:docname="albumart.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective2390"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.9597979"
+     inkscape:cx="54.704128"
+     inkscape:cy="22.983382"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1278"
+     inkscape:window-height="717"
+     inkscape:window-x="-4"
+     inkscape:window-y="51" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Rohit Yadav</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
+        <dc:title>VLC Mono Chrome</dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-40.421001,-344.36215)">
+    <path
+       id="path2402"
+       d="M 41.442873,389.47779 C 41.255145,389.00401 43.772889,380.32536 45.431231,375.72994 L 45.953689,374.28217 L 47.971664,374.28217 C 49.84162,374.28217 49.998824,374.34854 50.114852,375.18702 C 50.317522,376.65163 52.000474,378.0404 54.459997,378.77263 C 62.509776,381.16915 72.601075,378.88259 72.601075,374.66208 C 72.601075,374.22505 73.044966,374.1012 74.611317,374.1012 C 76.989065,374.1012 76.583543,373.41115 79.340139,382.14792 C 80.391069,385.47872 81.196776,388.57335 81.130602,389.02486 L 81.010286,389.84578 L 61.336604,389.93945 C 43.93947,390.02228 41.637458,389.96886 41.442873,389.47779 z M 56.530138,369.98846 C 53.546255,369.29057 52.418968,368.76937 52.418968,368.0877 C 52.418968,367.52326 54.602882,360.34091 54.770909,360.35275 C 54.813471,360.35575 55.521033,360.59291 56.343267,360.87977 C 58.390058,361.59388 63.890437,361.58509 66.082953,360.8642 C 67.034641,360.5513 67.88202,360.36184 67.966015,360.44319 C 68.364246,360.82884 70.388387,368.07484 70.218005,368.50482 C 69.651004,369.93577 60.531252,370.92426 56.530138,369.98846 z M 58.305416,351.79043 C 57.945689,351.68984 57.651367,351.44097 57.651367,351.23735 C 57.651367,350.32062 58.880536,346.90251 59.386351,346.41266 C 60.165945,345.65768 62.623916,345.71361 63.352947,346.50291 C 64.054368,347.26232 65.300519,351.25052 64.944201,351.5956 C 64.640878,351.88934 59.227364,352.04821 58.305416,351.79043 z"
+       style="fill:#ffffff" />
+  </g>
+</svg>
