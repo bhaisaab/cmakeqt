@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Name=CMakeQt
+Comment=CMake build system framework for Qt apps.
+Exec=cmakeqt %U
+Icon=cmakeqt
+Terminal=false
+Type=Application
+Categories=AudioVideoEditing;AudioVideo;Qt;
+Name[en_IN]=cmakeqt.desktop
