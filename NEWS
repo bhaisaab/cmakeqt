@@ -1,5 +1,8 @@
-CMakeQt is/'ll be used in:
 
-VLMC <vlmc.org>
-xDC++ <krossdcpp.sf.net>
-ScuttleButt Messenger <www.whatifi.undo.it>
+Version Log 0.1
+===============
+
+- Builds fine on Linux.
+- Qt Modules detected and included.
+- BUilds out of the box; packaging needs rework.
+- Tested to work on Linux.

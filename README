@@ -1,6 +1,8 @@
-CMakeQt is a small build system template for Qt Projects. Feel free to use and 
-modify it according to your project. Licensed under GPL v2 or later.
-Copyright Rohit Yadav, 2009.
+CMakeQt is a cmake build system framework for Qt based projects. 
+
+Feel free to use and modify it according to your project. 
+License: GPL v2 or later.
+Copyright Rohit Yadav, 2009-10.
 
 Repo
 ====
@@ -8,27 +10,28 @@ http://github.com/rohityadav/cmakeqt
 
 WWW
 ===
-http://www.whatifi.undo.it/my-open-source-projects
+http://rohityadav.in/projects
 
 Building
 ========
 
-1. Go to build directory:
-       cd build
-2. Now, build it with:
-       cmake ../ && make
-3. If everything's goes fine, the binary will be compiled in build/src/cmakeqt
-4. To run, in the parent folder run "cmakeqt" script:
-       sh cmakeqt 
-   or,
-       ./cmakeqt
+  mkdir build && cd build
+  cmake .. && make
+  
+The binary will be created in <build-folder>/bin
 
+Who uses CMakeQt
+================
+
+- VLMC
+- Graffiti
+- GtkMoo
 
 Support
 =======
 
-eMail
-	Rohit Yadav<rohityadav89@gmail.com>
+Mail
+  Rohit Yadav <rohityadav89 AT gmail.com>
 
 IRC
-	User: rohityadav on Channel #vlmc #videolan #kde #qt on Freenode.
+  Contact rohityadav on Channel #vlmc #videolan on Freenode.
