@@ -1,5 +1,5 @@
 #include <QtGui/QApplication>
-#include "autoqt.h"
+#include "AutoQt.h"
 
 int main(int argc, char *argv[])
 {
