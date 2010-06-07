@@ -1,0 +1,20 @@
+Hacking CMakeQt
+---------------
+
+Use common sense, hack as you wish. If you want your stuff to be merged, send
+a patch, in unified format(refer diff -Naur ...), to rohityadav89 AT gmail.com
+
+Follow the format and indentation as in every files :)
+
+Copyright
+---------
+To comply with the GPL, add your name, email address & the year to the top of
+any file that you edit. If you bring in code or files from elsewhere, make sure
+its GPL-compatible and to put the authors name, email & copyright year to the
+top of those files.
+
+Please note that it is not sufficient to write a pointer to the license (like a
+URL). The complete license header needs to be written everytime.
+
+Thanks, now have fun!
+  -- Rohit Yadav
