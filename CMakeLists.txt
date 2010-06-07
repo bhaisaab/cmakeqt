@@ -1,14 +1,186 @@
-#CMakeQt by Rohit Yadav<rohityadav89@gmail.com>
-#Minimalistic CMake Build System for Qt
+#
+# CMakeQt
+# CMake build system framework for Qt based projects
+#
+# Author: Rohit Yadav <rohityadav89 AT gmail.com>
+#
 
-project(CMAKEQT) # Name of project
+# Project Version
+SET(CPACK_PACKAGE_VERSION_MAJOR "0")
+SET(CPACK_PACKAGE_VERSION_MINOR "1")
+SET(COMPLETE_VERSION ${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR})
 
-cmake_minimum_required(VERSION 2.6.0)
-find_package(Qt4 REQUIRED)
-add_definitions(${QT_DEFINITIONS})
-link_directories(${QT4_LIB_DIR})
-include_directories(${QT4_INCLUDE_DIR})
+# Set Project Version
+SET(PROJECT_VERSION ${COMPLETE_VERSION})
+
+SET(PROJECT_NAME_SHORT "CMakeQt")
+SET(PROJECT_NAME_LONG "CMake for Qt")
+STRING(TOLOWER ${PROJECT_NAME_SHORT} PROJECT_NAME_SHORT_LOWER)
+
+# Name of the project
+PROJECT(${PROJECT_NAME_SHORT_LOWER}-${PROJECT_VERSION})
+
+# Codename of the project
+SET(RELEASE_NAME "alpha-beta-gamma")
+
+# System on which project is built
+SITE_NAME(HOSTNAME)
+
+# CMake Settings
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0)
+SET(CMAKE_COLOR_MAKEFILE ON)
+SET(CMAKE_VERBOSE_MAKEFILE OFF)
+
+# Set path to additional CMake modules
+SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+
+# Configuring build type
+IF(NOT CMAKE_BUILD_TYPE)
+    SET(CMAKE_BUILD_TYPE "Debug" CACHE STRING
+        "Choose the type of build, options are: None Debug Release."
+        FORCE)
+    MESSAGE("Setting build type to '${CMAKE_BUILD_TYPE}'")
+ELSE(NOT CMAKE_BUILD_TYPE)
+    MESSAGE("Build type set to '${CMAKE_BUILD_TYPE}'")
+ENDIF(NOT CMAKE_BUILD_TYPE)
+
+# On Mac OS build a universal binary
+IF(APPLE)
+    SET(CMAKE_BUILD_TYPE "Release")
+    SET(CMAKE_OSX_ARCHITECTURES i386 ppc )
+ENDIF(APPLE)
+
+# Copy the sh launcher
+IF(NOT WIN32)
+    CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmakeqt.sh" "${CMAKE_CURRENT_BINARY_DIR}/cmakeqt" COPYONLY)
+ENDIF(NOT WIN32)
+
+# Search and include Qt4 parameters
+# Set Qt min required version and modules 
+FIND_PACKAGE(Qt4 4.6.0 COMPONENTS QtCore QtGui QtXml QtSvg REQUIRED )
+
+INCLUDE(${QT_USE_FILE})
+ADD_DEFINITIONS(${QT_DEFINITIONS})
+
+# Layout of CMakeQt installation
+SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# Set common dirs for MAC and UNIX
+SET (DEFAULT_BIN_SUBDIR     bin)
+SET (DEFAULT_LIB_SUBDIR     lib)
+SET (DEFAULT_DATA_SUBDIR    share)
+SET (DEFAULT_SRC_SUBDIR     src)
+SET (DEFAULT_INCLUDE_SUBDIR include)
+
+# Set CMAKEQT path params
+SET (CMAKEQT_BIN_SUBDIR     "${DEFAULT_BIN_SUBDIR}"        CACHE STRING "Subdirectory where executables will be installed")
+SET (CMAKEQT_LIB_SUBDIR     "${DEFAULT_LIB_SUBDIR}"        CACHE STRING "Subdirectory where libraries will be installed")
+SET (CMAKEQT_DATA_SUBDIR    "${DEFAULT_DATA_SUBDIR}"       CACHE STRING "Subdirectory where CMAKEQT's data will be installed")
+SET (CMAKEQT_SRC_SUBDIR     "${DEFAULT_SRC_SUBDIR}"        CACHE STRING "Subdirectory where CMAKEQT's source is")
+SET (CMAKEQT_INCLUDE_SUBDIR "${DEFAULT_INCLUDE_SUBDIR}"    CACHE STRING "Subdirectory where header files will be installed")
+
+# full paths for the installation
+SET (CMAKEQT_BIN_DIR     ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_BIN_SUBDIR})
+SET (CMAKEQT_LIB_DIR     ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_LIB_SUBDIR})
+SET (CMAKEQT_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_INCLUDE_SUBDIR})
+SET (CMAKEQT_DATA_DIR    ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_DATA_SUBDIR}/cmakeqt/)
+SET (CMAKEQT_DOC_DIR     ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_DATA_SUBDIR}/doc/cmakeqt/)
+SET (CMAKEQT_EFFECTS_DIR ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_LIB_SUBDIR}/cmakeqt/effects/)
+SET (CMAKEQT_DESKTOP_DIR ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_DATA_SUBDIR}/applications/)
+SET (CMAKEQT_PIXMAPS_DIR ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_DATA_SUBDIR}/pixmaps/)
+
+# Manual page - makes sense only on unix systems
+IF(UNIX)
+    SET (DEFAULT_MANUAL_SUBDIR  man)
+    SET (CMAKEQT_MANUAL_SUBDIR  ${DEFAULT_MANUAL_SUBDIR}  CACHE STRING "Subdirectory where manual files will be installed")
+    MARK_AS_ADVANCED (CMAKEQT_MANUAL_SUBDIR)
+    SET (CMAKEQT_MANUAL_DIR  ${CMAKE_INSTALL_PREFIX}/${CMAKEQT_MANUAL_SUBDIR})
+ENDIF(UNIX)
 
 #Recursively add sub dirs
-add_subdirectory(src)
+SUBDIRS(src)
 
+# Copy stuff to doc subdirectory
+INSTALL (FILES AUTHORS COPYING INSTALL NEWS README TRANSLATORS
+         DESTINATION ${CMAKEQT_DOC_DIR})
+
+# Copy .desktop file
+INSTALL (FILES share/cmakeqt.desktop DESTINATION ${CMAKEQT_DESKTOP_DIR})
+
+# Copy the CMAKEQT pixmap
+INSTALL (FILES share/cmakeqt.png DESTINATION ${CMAKEQT_PIXMAPS_DIR})
+
+# Copy the share directory
+#INSTALL (DIRECTORY share/ DESTINATION ${CMAKEQT_DATA_DIR}
+#         PATTERN "*.desktop" EXCLUDE
+#         PATTERN "*.ico" EXCLUDE
+#         PATTERN "*.icns" EXCLUDE
+#         PATTERN "cmakeqt.png" EXCLUDE)
+
+
+#############################################################
+# Enable packaging
+
+INCLUDE(InstallRequiredSystemLibraries)
+
+SET(CPACK_SYSTEM_NAME ${CMAKE_SYSTEM_NAME})
+SET(CPACK_PACKAGE_NAME ${PROJECT_NAME_SHORT})
+SET(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "CMakeQt")
+SET(CPACK_PACKAGE_DESCRIPTION 
+"CMakeQt \n Its is a ready-to-hack cmake build system framework for Qt projects.But most of stuff is cool! More bla bla bla here.")
+SET(CPACK_PACKAGE_VENDOR "Rohit Yadav")
+SET(CPACK_PACKAGE_CONTACT "rohityadav89 AT gmail.com")
+SET(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README")
+SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/COPYING")
+SET(CPACK_PACKAGE_INSTALL_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
+
+SET(PACKAGE_DESCRIPTION_SUMMARY ${CPACK_PACKAGE_DESCRIPTION_SUMMARY})
+SET(PACKAGE_DESCRIPTION ${CPACK_PACKAGE_DESCRIPTION})
+
+# NSIS Windows installer
+IF(WIN32 AND NOT UNIX)
+    # There is a bug in NSI that does not handle full unix paths properly. Make
+    # sure there is at least one set of four (4) backslashes.
+    SET(CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/share\\\\cmakeqt.png")
+    SET(CPACK_NSIS_INSTALLED_ICON_NAME "\\\\cmakeqt.exe")
+    SET(CPACK_NSIS_DISPLAY_NAME "${CPACK_PACKAGE_INSTALL_DIRECTORY} CMAKEQT")
+    SET(CPACK_NSIS_HELP_LINK "http:\\\\\\\\yorg.in")
+    SET(CPACK_NSIS_URL_INFO_ABOUT "http:\\\\\\\\yorg.in")
+    SET(CPACK_NSIS_CONTACT "rohityadav89 AT gmail.com")
+    SET(CPACK_NSIS_MODIFY_PATH ON)
+ENDIF(WIN32 AND NOT UNIX)
+
+# RPM packages
+INCLUDE(${CMAKE_MODULE_PATH}/RpmBuild.cmake)
+IF(RPMBUILD_FOUND)
+    SET(CPACK_GENERATOR "RPM")
+    SET(CPACK_SET_DESTDIR TRUE)
+ENDIF(RPMBUILD_FOUND)
+
+# Debian packages
+INCLUDE (${CMAKE_MODULE_PATH}/DpkgBuild.cmake)
+IF(DPKG_FOUND)
+    SET(CPACK_GENERATOR "DEB")
+    SET(CPACK_DEBIAN_PACKAGE_DESCRIPTION ${CPACK_PACKAGE_DESCRIPTION})
+    SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY ${CPACK_PACKAGE_DESCRIPTION_SUMMARY})
+    SET(CPACK_SET_DESTDIR TRUE)
+    SET(CPACK_DEBIAN_PACKAGE_ARCHITECTURE i386) #change to your architecture here
+    SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libqt4-gui ( >= 4.6 ), libqt4-xml ( >= 4.6 ), libqt4-svg ( >= 4.6 )")
+ENDIF(DPKG_FOUND)
+
+# Mac App Bundle
+IF(APPLE)
+    SET(CPACK_GENERATOR "DragNDrop")
+    SET(CPACK_PACKAGE_FILE_NAME "CMakeQt")
+    # Libraries are bundled directly
+    SET(CPACK_COMPONENT_LIBRARIES_HIDDEN TRUE)
+    # Bundle Properties
+    SET(MACOSX_BUNDLE_BUNDLE_NAME cmakeqt)
+    SET(MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION})
+    SET(MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION})
+    SET(MACOSX_BUNDLE_LONG_VERSION_STRING "Version ${PROJECT_VERSION}")
+ENDIF(APPLE)
+
+SET(CPACK_PACKAGE_EXECUTABLES "cmakeqt" "CMAKEQT")
+INCLUDE(CPack)
