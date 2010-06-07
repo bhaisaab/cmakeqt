@@ -1,86 +1,75 @@
-#CMakeQt by Rohit Yadav<rohityadav89@gmail.com>
-#CMake Build System for Qt
-
-include(${QT_USE_FILE})
+#
+# CMakeQt
+# CMake build system framework for Qt based projects
+#
+# Author: Rohit Yadav <rohityadav89 AT gmail.com>
+#
 
 #Put here CPPs
-SET(CPPs
+SET(CMAKEQT_SRCS
     main.cpp
-    autoqt.cpp
 )
 
-#Put here UI files
-SET(UIs
-    interface.ui
-)
-
-#Put here H/HPPs to be Moc-ed
-SET(MOCs
-    autoqt.h
+SET(CMAKEQT_HDRS
 )
 
 #Put here QRC files to be Rcc-ed
-SET(RCCs 
+SET(CMAKEQT_RCC
     resources.qrc
 )
 
-#Put here .TS files (if any)
-SET(TRANs
+#include paths for vlmc
+INCLUDE_DIRECTORIES(
+  ${CMAKE_CURRENT_BINARY_DIR}
+  ${CMAKE_CURRENT_BINARY_DIR}/src
+  .
 )
 
-# generate rules for building source files from the resources
-QT4_ADD_RESOURCES(RCCs_CPP ${RCCs})
-QT4_WRAP_UI(UIs_H ${UIs})
-QT4_WRAP_CPP(MOC_CPPs ${MOCs})
-QT4_ADD_TRANSLATION(TRANS_H ${TRANs})
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+LIST( APPEND CMAKEQT_SRCS
+             AutoQt.cpp )
 
-add_executable(cmakeqt ${CPPs} ${MOC_CPPs} ${UIs_H} ${RCCs_CPP} )
+LIST( APPEND CMAKEQT_HDRS
+             AutoQt.h )
+
+#Put here UI files
+SET(CMAKEQT_UIS
+        AutoQt.ui
+)
+
+#Put here .TS files (if any)
+#SET(TRANs
+#)
+
+QT4_WRAP_UI(CMAKEQT_UIS_H ${CMAKEQT_UIS})
+QT4_ADD_RESOURCES(CMAKEQT_RCC_SRCS ${CMAKEQT_RCC})
+QT4_WRAP_CPP(CMAKEQT_MOC_SRCS ${CMAKEQT_HDRS})
+
+#QT4_ADD_TRANSLATION(TRANS_H ${TRANs})
+
+ADD_EXECUTABLE(cmakeqt ${CMAKEQT_SRCS} ${CMAKEQT_MOC_SRCS} ${CMAKEQT_UIS_H} ${CMAKEQT_RCC_SRCS} )
 
 #Link the target against the Qt libraries
-target_link_libraries(cmakeqt ${QT_LIBRARIES})
+TARGET_LINK_LIBRARIES(
+    cmakeqt
+    ${QT_QTCORE_LIBRARY} 
+    ${QT_QTGUI_LIBRARY} 
+    ${QT_QTXML_LIBRARY} 
+    ${QT_QTSVG_LIBRARY})
 
 #Now we are done. Easy with CMake!!!
 
 # --- Install
-install ( TARGETS cmakeqt
-          DESTINATION ${CMAKE_INSTALL_PREFIX}/lib )
+INSTALL(TARGETS cmakeqt
+        BUNDLE  DESTINATION ${CMAKEQT_BIN_DIR}
+        RUNTIME DESTINATION ${CMAKEQT_BIN_DIR})
 
-install ( TARGETS cmakeqt
-          DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
+ADD_CUSTOM_COMMAND(
+    OUTPUT ${CMAKE_SOURCE_DIR}/bin/cmakeqt
+    COMMAND ${CMAKE_COMMAND} copy ${CMAKE_CURRENT_SOURCE_DIR}/cmakeqt ${CMAKE_SOURCE_DIR}/bin/cmakeqt
+    DEPENDS ${CMAKE_BINARY_DIR}/src/cmakeqt
+)
 
-file ( GLOB_RECURSE hpp_files . *.h *.hpp)
-install ( FILES ${hpp_files}
-          DESTINATION ${CMAKE_INSTALL_PREFIX}/include )
-
-#install ( FILES ${PROJECT_BINARY_DIR}/hugr.pc
-#         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig )
-
-
-# --- Package generation
-set ( PACKAGE_NAME ${PROJECT_NAME} )
-set ( PACKAGE_VERSION "0.0.1" )
-set ( PACKAGE_RELEASE 0 )
-set ( PACKAGE_MAINTAINER_NAME "Rohit Yadav" )
-set ( PACKAGE_MAINTAINER_EMAIL "rohityadav89@gmail.com" )
-set ( PACKAGE_DESCRIPTION "CMake Build System for Qt" )
-set ( PACKAGE_DESCRIPTION_SUMMARY "CMakeQt" )
-set ( PACKAGE_DEPENDS ${hugr_dependencies} )
-
-# Debian packages
-include ( ../CMake/DpkgDeb.cmake )
-if ( DPKG_FOUND )
-    add_debian_package ( ${PROJECT_NAME} )
-endif ( DPKG_FOUND )
-
-# RPM packages
-#include ( ../CMake/Rpmbuild.cmake )
-#set ( PACKAGE_GROUP "Groupe" )
-#set ( PACKAGE_LICENSE "LGPL" )
-
-#if ( RPMBUILD_FOUND )
-#    add_rpm ( ${PROJECT_NAME} )
-#endif ( RPMBUILD_FOUND )
-
+ADD_DEFINITIONS(-W -Wall)
 
