@@ -1,5 +1,5 @@
 #
-# VLMC DPKG Finder
+# DPKG Finder
 # Authors: Rohit Yadav <rohityadav89@gmail.com>
 #
 

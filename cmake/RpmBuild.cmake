@@ -1,5 +1,5 @@
 #
-# VLMC RPM Finder
+# RPM Finder
 # Authors: Rohit Yadav <rohityadav89@gmail.com>
 #
 

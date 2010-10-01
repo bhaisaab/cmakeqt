@@ -1,12 +1,10 @@
 #
-# VLMC build system
-# Authors: Ludovic Fauvet <etix@vlmc.org>
+# Toolchain to enable cross-compilation for windows
+# Authors: Rohit Yadav <rohityadav89@gmail.com>
 #
 
-# this one is important
 SET(CMAKE_SYSTEM_NAME Windows)
-#this one not so much
-SET(CMAKE_SYSTEM_VERSION 1)
+SET(CMAKE_SYSTEM_VERSION 7)
 
 # specify the cross compiler
 IF(NOT CMAKE_C_COMPILER)
