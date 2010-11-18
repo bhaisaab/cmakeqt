@@ -1,5 +1,6 @@
+*.qm
+ts/resources-ts.qrc
 bin/
 build/
 cmakeqt
-
 *.o
