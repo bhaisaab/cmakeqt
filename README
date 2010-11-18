@@ -1,16 +1,38 @@
-CMakeQt is a cmake build system framework for Qt based projects. 
+About
+=====
+CMakeQt, a cmake build system template for Qt based projects. 
+Copyright Rohit Yadav <rohityadav89@gmail.com>, 2009-10
 
-Feel free to use and modify it according to your project. 
-License: GPL v2 or later.
-Copyright Rohit Yadav, 2009-10.
+Feel free to use and modify it according to your project.
+Strip the credits if you want to... do whatever you want to do with it.
+For reporting bugs, feature requests, for donations and just to say hi, contact the author.
 
-Repo
-====
+Source
+======
 http://github.com/rohityadav/cmakeqt
 
 WWW
 ===
-http://rohityadav.in/projects
+https://www.ohloh.net/p/cmakeqt
+http://rohityadav.in/projects/cmakeqt
+
+Translations
+============
+
+Languages that only needed to be shipped can be selected using LANGS, for example:
+  cmake -DLANGS="en;fr" ..
+
+To create ts files, cd to ts folder and do:
+  cd ts
+  lupdate ../src/* -ts template.ts
+
+Now, send this template to the translators and ask them to rename and send you the file as cmakeqt_<lang-token>.ts;
+where, lang token can be fr_FR etc.
+
+If you add a new language translation, simple add the token to the lang list in ts/CMakeLists.txt
+For testing I've added a french translation, which is explicitly ran in src/main.cpp
+
+Hack hack hack!
 
 Building
 ========
@@ -20,18 +42,38 @@ Building
   
 The binary will be created in <build-folder>/bin
 
-Who uses CMakeQt
+Packaging
+=========
+
+1. On Linux: 
+  make package
+
+  To force deb:
+    cpack -G DEB
+
+  To force rom:
+    cpack -G RPM
+
+2. On Mac: (gcc, g++, make, cmake, qt 4.6+ etc. must be installed...)
+  cd contribs
+  sh contribs-mac.sh
+  This will by default create a Mac Bundle, vlmc.app in /build/bin
+
+  To create a dmg image:
+    Uncomment #dmg in /src/CMakeLists.txt, at the end of the file.
+    and follow the build process, the dmg will be created in /build/bin
+
+3. To cross-compile and package on linux for windows:
+
+  cd contribs
+  sh contribs.sh
+  mkdir win32 && cd win32
+  cmake -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-win32.cmake ..
+  make
+  make installer
+
+Who uses CMakeQt (send me your links, I'll add your project here...)
 ================
 
-- VLMC
-- Graffiti
-- GtkMoo
-
-Support
-=======
-
-Mail
-  Rohit Yadav <rohityadav89 AT gmail.com>
-
-IRC
-  Contact rohityadav on Channel #vlmc #videolan on Freenode.
+- VLMC: http://vlmc.org
+- Graffiti: http://graffiti.sourceforge.com

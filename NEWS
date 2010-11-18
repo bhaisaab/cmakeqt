@@ -1,7 +1,20 @@
+Version 0.3
+===========
+- Man page on linux
+- Mac build, app/dmg option
+- Translations
+- Cross-compilation for windows on linux
+- NSIS installer for windows using xcompiling
+- Using config.h to get build variables etc.
+- Tested on Linux and Mac.
 
-Version Log 0.1
-===============
+Version 0.2
+===========
+- Fixes, automation etc.
+- Buggy contribs support etc.
 
+Version 0.1
+===========
 - Builds fine on Linux.
 - Qt Modules detected and included.
 - BUilds out of the box; packaging needs rework.
