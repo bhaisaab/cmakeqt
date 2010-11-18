@@ -1,7 +1,5 @@
 #
-# CMakeQt
-# CMake build system framework for Qt based projects
-#
+# CMakeQt: CMake build system template for Qt based projects
 # Author: Rohit Yadav <rohityadav89 AT gmail.com>
 #
 
@@ -16,6 +14,7 @@ SET(CMAKEQT_HDRS
 #Put here QRC files to be Rcc-ed
 SET(CMAKEQT_RCC
     resources.qrc
+    ../ts/resources-ts.qrc
 )
 
 #include paths for vlmc
@@ -28,39 +27,51 @@ INCLUDE_DIRECTORIES(
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 LIST( APPEND CMAKEQT_SRCS
-             AutoQt.cpp )
+             CMakeQt.cpp )
 
 LIST( APPEND CMAKEQT_HDRS
-             AutoQt.h )
+             CMakeQt.h )
 
 #Put here UI files
 SET(CMAKEQT_UIS
-        AutoQt.ui
+        CMakeQt.ui
 )
-
-#Put here .TS files (if any)
-#SET(TRANs
-#)
 
 QT4_WRAP_UI(CMAKEQT_UIS_H ${CMAKEQT_UIS})
 QT4_ADD_RESOURCES(CMAKEQT_RCC_SRCS ${CMAKEQT_RCC})
 QT4_WRAP_CPP(CMAKEQT_MOC_SRCS ${CMAKEQT_HDRS})
 
-#QT4_ADD_TRANSLATION(TRANS_H ${TRANs})
+IF( MINGW )
+    # resource compilation for MinGW
+    ADD_CUSTOM_COMMAND( OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/icon.o
+        COMMAND ${CMAKE_WINDRES} -I${CMAKE_SOURCE_DIR} -i${CMAKE_SOURCE_DIR}/cmake/icon.rc
+        -o ${CMAKE_CURRENT_BINARY_DIR}/icon.o )
+    SET(CMAKEQT_SRCS ${CMAKEQT_SRCS} ${CMAKE_CURRENT_BINARY_DIR}/icon.o)
+    SET(LINK_FLAGS -Wl,-subsystem,windows)
+ENDIF( MINGW )
+
+IF(WIN32)
+    SET(GUI_TYPE WIN32)
+ENDIF(WIN32)
+
+IF(APPLE)
+    SET(GUI_TYPE MACOSX_BUNDLE)
+    SET(CMAKEQT_SRCS ${CMAKEQT_SRCS} ../share/cmakeqt.icns)
+    SET_SOURCE_FILES_PROPERTIES(../share/cmakeqt.icns PROPERTIES
+        MACOSX_PACKAGE_LOCATION Resources)
+    SET(MACOSX_BUNDLE_ICON_FILE VLMC.icns)
+ENDIF(APPLE)
 
 ADD_EXECUTABLE(cmakeqt ${CMAKEQT_SRCS} ${CMAKEQT_MOC_SRCS} ${CMAKEQT_UIS_H} ${CMAKEQT_RCC_SRCS} )
 
-#Link the target against the Qt libraries
-TARGET_LINK_LIBRARIES(
-    cmakeqt
-    ${QT_QTCORE_LIBRARY} 
-    ${QT_QTGUI_LIBRARY} 
-    ${QT_QTXML_LIBRARY} 
-    ${QT_QTSVG_LIBRARY})
+# Add translations
+ADD_DEPENDENCIES(cmakeqt translations)
 
-#Now we are done. Easy with CMake!!!
+# Link the target against the Qt libraries
+TARGET_LINK_LIBRARIES(cmakeqt ${CMAKEQT_LIBS})
 
-# --- Install
+# Now we are done.
+
 INSTALL(TARGETS cmakeqt
         BUNDLE  DESTINATION ${CMAKEQT_BIN_DIR}
         RUNTIME DESTINATION ${CMAKEQT_BIN_DIR})
@@ -72,4 +83,15 @@ ADD_CUSTOM_COMMAND(
 )
 
 ADD_DEFINITIONS(-W -Wall)
+
+# Creates app bundle in /bin, uncomment #-dmg to create a dmg output 
+IF( APPLE )
+    ADD_CUSTOM_COMMAND(
+        TARGET cmakeqt
+        POST_BUILD
+        COMMAND macdeployqt ${CMAKE_CURRENT_BINARY_DIR}/../bin/cmakeqt.app -no-plugins #-dmg
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+        COMMENT "Deploying the Qt Framework onto the bundle"
+    )
+ENDIF( APPLE )
 

@@ -1,10 +1,19 @@
 #include <QtGui/QApplication>
-#include "AutoQt.h"
+#include <QTranslator>
+#include "CMakeQt.h"
+
+#define TS_PREFIX "cmakeqt_"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    AutoQt w;
+    QApplication app(argc, argv);
+
+    QTranslator translator;
+    QString lang = "fr_FR";
+    translator.load( TS_PREFIX + lang, ":/ts/");
+    app.installTranslator(&translator);
+
+    CMakeQt w;
     w.show();
-    return a.exec();
+    return app.exec();
 }
