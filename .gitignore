@@ -4,3 +4,7 @@ bin/
 build/
 cmakeqt
 *.o
+contribs/downloads
+contribs/bin
+contribs/include
+contribs/lib
