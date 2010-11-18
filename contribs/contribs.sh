@@ -1,12 +1,12 @@
 #!/bin/sh
 
-QT4_FILE="qt4-4.6.2-win32-bin.tar.bz2"
-QT4_URL="http://download.videolan.org/pub/videolan/contrib/qt4-4.6.2-win32-bin.tar.bz2"
+QT4_FILE="qt4-4.7.1-win32-bin.tar.bz2"
+QT4_URL="http://download.videolan.org/pub/videolan/contrib/qt4-4.7.1-win32-bin.tar.bz2"
 
 ROOT_FOLDER=`pwd`
 DOWNLOADS_FOLDER=$ROOT_FOLDER/downloads
 
-# Get the dependencies, aka VLC+Qt
+# Get the dependencies, Qt
 mkdir -p $DOWNLOADS_FOLDER
 cd $DOWNLOADS_FOLDER
 
