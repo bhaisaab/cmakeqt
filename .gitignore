@@ -2,6 +2,7 @@
 ts/resources-ts.qrc
 bin/
 build/
+win32/
 cmakeqt
 *.o
 contribs/downloads

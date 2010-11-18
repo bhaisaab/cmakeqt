@@ -72,6 +72,8 @@ Packaging
   make
   make installer
 
+  This will create an .exe installer in /win32/bin
+
 Who uses CMakeQt (send me your links, I'll add your project here...)
 ================
 

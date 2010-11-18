@@ -122,7 +122,7 @@ ELSE (NOT WIN32)
     SET (CMAKEQT_LIBS # Manually specify paths
             ${CONTRIBS_PATH}/lib/libQtNetwork.a ${CONTRIBS_PATH}/lib/libQtXml.a
             ${CONTRIBS_PATH}/lib/libqtaccessiblewidgets.a
-            ${CONTRIBS_PATH}/lib/libQtGui.a ${CONTRIBS_PATH}/lib/libqjpeg.a
+            ${CONTRIBS_PATH}/lib/libQtGui.a
             ${CONTRIBS_PATH}/lib/libqtaccessiblewidgets.a
             ${CONTRIBS_PATH}/lib/libQtCore.a
             ws2_32 winmm imm32)
@@ -171,6 +171,7 @@ ENDIF(UNIX)
 # Recursively add sub dirs
 SUBDIRS(ts)
 SUBDIRS(src)
+SUBDIRS(nsis)
 
 # Copy stuff to doc subdirectory
 INSTALL (FILES AUTHORS COPYING INSTALL NEWS README TRANSLATORS
