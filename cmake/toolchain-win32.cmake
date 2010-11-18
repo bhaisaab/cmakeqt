@@ -1,5 +1,5 @@
 #
-# Toolchain to enable cross-compilation for windows
+# Toolchain to enable cross-compilation for Windows on Linux
 # Authors: Rohit Yadav <rohityadav89@gmail.com>
 #
 
