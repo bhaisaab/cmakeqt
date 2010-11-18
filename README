@@ -9,7 +9,11 @@ For reporting bugs, feature requests, for donations and just to say hi, contact 
 
 Source
 ======
-http://github.com/rohityadav/cmakeqt
+
+Github: http://github.com/rohityadav/cmakeqt
+
+Grab the latest source:
+  git clone git://github.com/rohityadav/cmakeqt.git
 
 WWW
 ===
