@@ -1,11 +1,32 @@
 About
 =====
-CMakeQt, a cmake build system template for Qt based projects. 
+CMakeQt, a cmake build system template for Qt based projects.
 Copyright Rohit Yadav <rohityadav89@gmail.com>, 2009-10
 
 Feel free to use and modify it according to your project.
-Strip the credits if you want to... do whatever you want to do with it.
+If you like my work, show you appreciation by giving me kudos on my 'ohloh' profile.
 For reporting bugs, feature requests, for donations and just to say hi, contact the author.
+
+WWW
+===
+https://www.ohloh.net/p/cmakeqt
+http://rohityadav.in/projects/cmakeqt
+
+History
+=======
+Initially the build system was just for VLMC, but I thought why not make a
+build system template that anyone can hack easily and use in their own projects,
+thus CMakeQt! I think of CMakeQt as VLMC - /src; so just the build system.
+
+Who uses CMakeQt (or parts of source code)
+================
+
+- VLMC: http://git.videolan.org/?p=vlmc.git;a=summary
+- CernVM Installer: http://cernvm.cern.ch/portal/cernvm-installer
+- Blender: http://www.blender.org
+- Phonon-backend-vlc: http://gitorious.org/phonon/phonon-vlc
+- Tano Player: http://sourceforge.net/projects/tano/
+- Graffiti: https://github.com/rohityadav/graffiti
 
 Source
 ======
@@ -14,11 +35,6 @@ Github: http://github.com/rohityadav/cmakeqt
 
 Grab the latest source:
   git clone git://github.com/rohityadav/cmakeqt.git
-
-WWW
-===
-https://www.ohloh.net/p/cmakeqt
-http://rohityadav.in/projects/cmakeqt
 
 Translations
 ============
@@ -78,8 +94,3 @@ Packaging
 
   This will create an .exe installer in /win32/bin
 
-Who uses CMakeQt (send me your links, I'll add your project here...)
-================
-
-- VLMC: http://vlmc.org
-- Graffiti: http://graffiti.sourceforge.com
