@@ -1,7 +1,7 @@
 #!/bin/sh
 
-QT4_FILE="qt4-4.7.2-win32-bin.tar.bz2"
-QT4_URL="http://dl.rohityadav.in/contribs/qt4-4.7.2-win32-bin.tar.bz2"
+QT4_FILE="qt4-4.7.3-win32-bin.tar.bz2"
+QT4_URL="http://dl.rohityadav.in/contribs/qt4-4.7.3-win32-bin.tar.bz2"
 
 ROOT_FOLDER=`pwd`
 DOWNLOADS_FOLDER=$ROOT_FOLDER/downloads
