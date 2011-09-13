@@ -1,4 +1,8 @@
 ; CMakeQt NSIS Config script
+;
+; NSIS Script by:
+; Ludovic Fauvet <etix@l0cal.com>
+; Rohit Yadav <rohityadav89@gmail.com>
 
 !include "FileAssociation.nsh"
 
@@ -21,7 +25,7 @@ InstallDir "$PROGRAMFILES\@PROJECT_NAME_SHORT@"
 RequestExecutionLevel admin
 
 ; Compression method
-SetCompressor lzma
+SetCompressor /SOLID lzma
 
 ;--------------------------------
 ; Interface
@@ -56,6 +60,8 @@ Section "@PROJECT_NAME_SHORT@ (required)"
   SetOutPath $INSTDIR
 
   ; Put file there
+  File "libeay32.dll"
+  File "ssleay32.dll"
 ;  File "mingwm10.dll"
 ;  File "libgcc_s_dw2-1.dll"
 ;  File "QtCore4.dll"
@@ -74,6 +80,10 @@ Section "@PROJECT_NAME_SHORT@ (required)"
 
   ; Write the uninstall keys for Windows
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\@PROJECT_NAME_SHORT@" "DisplayName" "@PROJECT_NAME_LONG@"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\@PROJECT_NAME_SHORT@" "DisplayIcon" '"$INSTDIR\cmakeqt.exe"'
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\@PROJECT_NAME_SHORT@" "DisplayVersion" "@PROJECT_VERSION@"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\@PROJECT_NAME_SHORT@" "Publisher" "Rohit Yadav"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\@PROJECT_NAME_SHORT@" "URLInfoAbout" "http://rohityadav.in/"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\@PROJECT_NAME_SHORT@" "UninstallString" '"$INSTDIR\uninstall.exe"'
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\@PROJECT_NAME_SHORT@" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\@PROJECT_NAME_SHORT@" "NoRepair" 1
@@ -111,6 +121,8 @@ Section "Uninstall"
   Delete "$INSTDIR\cmakeqt.exe"
   Delete "$INSTDIR\cmakeqt.ico"
   Delete "$INSTDIR\uninstall.exe"
+  Delete "$INSTDIR\libeay32.dll"
+  Delete "$INSTDIR\ssleay32.dll"
 ;  Delete "$INSTDIR\mingwm10.dll"
 ;  Delete "$INSTDIR\libgcc_s_dw2-1.dll"
 ;  Delete "$INSTDIR\QtCore4.dll"
