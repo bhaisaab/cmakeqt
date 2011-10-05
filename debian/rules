@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+build:
+	mkdir -p $(CURDIR)/build
+	cd $(CURDIR)/build && \
+	cmake -DCMAKE_INSTALL_PREFIX=/usr .. && \
+	make
+
+common-install-arch::
+	cd $(CURDIR)/build && make install DESTDIR=$(CURDIR)/debian/cmakeqt
+
+clean::
+	rm -rf $(CURDIR)/build

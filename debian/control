@@ -1,0 +1,13 @@
+Source: cmakeqt
+Section: devel
+Priority: optional
+Maintainer: Rohit Yadav <rohityadav89@gmail.com>
+Standards-Version: 3.9.1
+Build-Depends: cdbs, debhelper (>= 7), cmake, libx11-dev, libqt4-dev, libqt4-gui ( >= 4.6 ), libqt4-network ( >= 4.6 ), libqt4-xml ( >= 4.6 ), libqt4-svg ( >= 4.6 )
+Homepage: http://rohityadav.in/projects/cmakeqt
+
+Package: cmakeqt
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-gui, libqt4-network, libqt4-xml, libqt4-svg
+Description: CMakeQt
+ CMakeQt, a cmake build system template for Qt based projects.

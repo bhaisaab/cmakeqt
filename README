@@ -1,7 +1,7 @@
 About
 =====
 CMakeQt, a cmake build system template for Qt based projects.
-Copyright Rohit Yadav <rohityadav89@gmail.com>, 2009-10
+Copyright Rohit Yadav <rohityadav89@gmail.com>, 2009-11
 
 Feel free to use and modify it according to your project.
 If you like my work, show you appreciation by giving me kudos on my 'ohloh' profile.
@@ -94,3 +94,17 @@ Packaging
 
   This will create an .exe installer in /win32/bin
 
+Distribution via Launchpad
+==========================
+
+Launchpad.net provides PPA facility for distribution of debian builds.
+The /debian folder holds debian package building rules.
+
+You build and upload your source pkgs by:
+  debuild -k<pgp key ID>
+  dput ppa:<ppa-id>/<pkg> <source.changes>
+
+To add/install the pkg, one can do:
+  sudo add-apt-repository ppa:<ppa-id>/<pkg>
+  sudo apt-get update
+  sudo apt-get install <pkg>
