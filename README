@@ -88,7 +88,7 @@ Packaging
   cd contribs
   sh contribs.sh
   mkdir win32 && cd win32
-  cmake -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-win32.cmake ..
+  cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-win32.cmake -DQT_MOC_EXECUTABLE=../contribs/tools/moc.exe ..
   make
   make installer
 

@@ -16,6 +16,10 @@ ENDIF(NOT CMAKE_CXX_COMPILER)
 IF(NOT CMAKE_WINDRES)
 SET(CMAKE_WINDRES      i586-mingw32msvc-windres)
 ENDIF(NOT CMAKE_WINDRES)
+#Explicity set rc_compiler flag
+IF(NOT CMAKE_RC_COMPILER)
+SET(CMAKE_RC_COMPILER  i586-mingw32msvc-windres)
+ENDIF(NOT CMAKE_RC_COMPILER)
 
 # where is the target environment 
 SET(CMAKE_FIND_ROOT_PATH  ${CMAKE_SOURCE_DIR}/contribs)
