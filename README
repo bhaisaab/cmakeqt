@@ -102,6 +102,7 @@ The /debian folder holds debian package building rules.
 
 You build and upload your source pkgs by:
   debuild -k<pgp key ID>
+  debuild -k<pgp key ID> -S -sa # creates only the source pkg
   dput ppa:<ppa-id>/<pkg> <source.changes>
 
 To add/install the pkg, one can do:
