@@ -83,10 +83,11 @@ Packaging
     Uncomment #dmg in /src/CMakeLists.txt, at the end of the file.
     and follow the build process, the dmg will be created in /build/bin
 
-3. To cross-compile and package on linux for windows:
+3. To cross-compile and package on linux for windows: (mingw, wine, nsis must be installed...)
 
   cd contribs
   sh contribs.sh
+  cd ..
   mkdir win32 && cd win32
   cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-win32.cmake -DQT_MOC_EXECUTABLE=../contribs/tools/moc.exe ..
   make

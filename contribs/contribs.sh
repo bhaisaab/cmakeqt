@@ -24,3 +24,6 @@ mkdir bin && mkdir include
 # Qt
 tar xvf $DOWNLOADS_FOLDER/$QT4_FILE -C . --strip-components=1
 cd include && ln -sf qt4/src && cd ..
+
+# make tools/moc.exe executable
+chmod +x tools/moc.exe
