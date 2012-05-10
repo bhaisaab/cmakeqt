@@ -10,7 +10,7 @@ For reporting bugs, feature requests, for donations and just to say hi, contact 
 WWW
 ===
 https://www.ohloh.net/p/cmakeqt
-https://github.com/rohityadav/cmakeqt
+https://github.com/bhaisaab/cmakeqt
 
 History
 =======
@@ -18,23 +18,23 @@ Initially the build system was just for VLMC, but I thought why not make a
 build system template that anyone can hack easily and use in their own projects,
 thus CMakeQt! I think of CMakeQt as VLMC - /src; so just the build system.
 
-Who uses CMakeQt (or parts of source code)
-================
+Some projects that use CMakeQt (or parts of source code)
+==============================
 
 - VLMC: http://git.videolan.org/?p=vlmc.git;a=summary
 - CernVM Installer: http://cernvm.cern.ch/portal/cernvm-installer
 - Blender: http://www.blender.org
 - Phonon-backend-vlc: http://gitorious.org/phonon/phonon-vlc
 - Tano Player: http://sourceforge.net/projects/tano/
-- Graffiti: https://github.com/rohityadav/graffiti
+- Graffiti: https://github.com/bhaisaab/graffiti
 
 Source
 ======
 
-Github: http://github.com/rohityadav/cmakeqt
+Github: http://github.com/bhaisaab/cmakeqt
 
 Grab the latest source:
-  git clone git://github.com/rohityadav/cmakeqt.git
+  git clone git://github.com/bhaisaab/cmakeqt.git
 
 Translations
 ============
@@ -42,7 +42,7 @@ Translations
 Languages that only needed to be shipped can be selected using LANGS, for example:
   cmake -DLANGS="en;fr" ..
 
-To create ts files, cd to ts folder and do:
+To create ts files, either simply do a `make lupdate` or cd to ts/ folder and do:
   cd ts
   lupdate ../src/* -ts template.ts
 
@@ -59,13 +59,13 @@ Building
 
   mkdir build && cd build
   cmake .. && make
-  
+
 The binary will be created in <build-folder>/bin
 
 Packaging
 =========
 
-1. On Linux: 
+1. On Linux:
   make package
 
   To force deb:
