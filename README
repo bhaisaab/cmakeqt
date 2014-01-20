@@ -1,11 +1,13 @@
 About
 =====
 CMakeQt, a cmake build system template for Qt based projects.
-Copyright Rohit Yadav <rohityadav89@gmail.com>, 2009-12
+Copyright Rohit Yadav <bhaisaab@baagi.org>, 2009-2014
 
 Feel free to use and modify it according to your project.
 If you like my work, show you appreciation by giving me kudos on my 'ohloh' profile.
 For reporting bugs, feature requests, for donations and just to say hi, contact the author.
+
+This release of cmakeqt will only work with old cmake and Qt4 contribs.
 
 WWW
 ===
