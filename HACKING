@@ -1,14 +1,14 @@
 Hacking CMakeQt
 ---------------
 
-Hack as you wish. If you want your stuff to be merged, send a patch, in unified format (refer diff -Naur or git format patch -o <HEAD etc...>) to: rohityadav89 AT gmail.com
+Fork https://github.com/bhaisaab/cmakeqt and send a pull request
 
 Copyright
 ---------
 To comply with the GPL, add your name, email address & the year to the top of
 any file that you edit. If you bring in code or files from elsewhere, make sure
 its GPL-compatible and to put the authors name, email & copyright year to the
-top of those files. Anyway, do whatever feels right ;)
+top of those files. Anyway, do the right thing ;)
 
 Thanks, now have fun!
   -- Rohit Yadav

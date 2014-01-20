@@ -1,8 +1,12 @@
+Version 1.1
+===========
+- Uses Qt 5.2
+
 Version 1.0
 ===========
 - Uses Qt contribs 4.8
 - Easier to package and publish src and binaries on Launchpad.net for debian based distros
-- Bug fixes to use with nsis, mingw, cmake, 
+- Bug fixes to use with nsis, mingw, cmake
 
 Version 0.3
 ===========
