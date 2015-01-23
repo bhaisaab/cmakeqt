@@ -1,13 +1,10 @@
 About
 =====
-CMakeQt, a cmake build system template for Qt based projects.
-Copyright Rohit Yadav <bhaisaab@baagi.org>, 2009-2014
+CMakeQt, a cross-platform CMake build system template for C++/Qt based projects.
+Copyright Rohit Yadav <rohit@scaleninja.com>, 2009-2015
 
-Feel free to use and modify it according to your project.
-If you like my work, show you appreciation by giving me kudos on my 'ohloh' profile.
-For reporting bugs, feature requests, for donations and just to say hi, contact the author.
-
-This release of cmakeqt will only work with old cmake and Qt4 contribs.
+Feel free to use and modify it according to your project. For reporting bugs,
+feature requests and just to say hi, contact the author.
 
 WWW
 ===
@@ -18,7 +15,7 @@ History
 =======
 Initially the build system was just for VLMC, but I thought why not make a
 build system template that anyone can hack easily and use in their own projects,
-thus CMakeQt! I think of CMakeQt as VLMC - /src; so just the build system.
+thus CMakeQt!
 
 Some projects that use CMakeQt (or parts of source code)
 ==============================
@@ -85,7 +82,7 @@ Packaging
     Uncomment #dmg in /src/CMakeLists.txt, at the end of the file.
     and follow the build process, the dmg will be created in /build/bin
 
-3. To cross-compile and package on linux for windows: (mingw, wine, nsis must be installed...)
+3. To cross-compile and package on linux for Windows: (mingw, wine, nsis must be installed...)
 
   cd contribs
   sh contribs.sh

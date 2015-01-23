@@ -1,6 +1,6 @@
 #
 # Toolchain to enable cross-compilation for Windows on Linux
-# Authors: Rohit Yadav <rohityadav89@gmail.com>
+# Authors: Rohit Yadav <rohit@scaleninja.com>
 #
 
 SET(CMAKE_SYSTEM_NAME Windows)

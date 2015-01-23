@@ -1,6 +1,6 @@
 #
 # RPM Finder
-# Authors: Rohit Yadav <rohityadav89@gmail.com>
+# Authors: Rohit Yadav <rohit@scaleninja.com>
 #
 
 FIND_PROGRAM(RPMBUILD

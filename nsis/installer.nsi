@@ -2,7 +2,7 @@
 ;
 ; NSIS Script by:
 ; Ludovic Fauvet <etix@l0cal.com>
-; Rohit Yadav <rohityadav89@gmail.com>
+; Rohit Yadav <rohit@scaleninja.com>
 
 !include "FileAssociation.nsh"
 

@@ -1,6 +1,6 @@
 #
 # CMakeQt build system
-# Authors: Rohit Yadav <rohityadav89@gmail.com>
+# Authors: Rohit Yadav <rohit@scaleninja.com>
 #
 
 ## RCC file
