@@ -93,5 +93,5 @@ You build and upload your source pkgs by:
 To add/install the pkg, one can do:
 
     sudo add-apt-repository ppa:<ppa-id>/<pkg>
-  sudo apt-get update
-  sudo apt-get install <pkg>
+    sudo apt-get update
+    sudo apt-get install <pkg>
