@@ -18,11 +18,13 @@ feature requests contact: https://github.com/scaleninja/cmakeqt
 # Translations
 
 Languages that only needed to be shipped can be selected using LANGS, for example:
-  cmake -DLANGS="en;fr" ..
+
+    cmake -DLANGS="en;fr" ..
 
 To create ts files, either simply do a `make lupdate` or cd to ts/ folder and do:
-  cd ts
-  lupdate ../src/* -ts template.ts
+
+    cd ts
+    lupdate ../src/* -ts template.ts
 
 Now, send this template to the translators and ask them to rename and send you the file as cmakeqt_<lang-token>.ts;
 where, lang token can be fr_FR etc.
@@ -32,54 +34,64 @@ For testing I've added a french translation, which is explicitly ran in src/main
 
 # Building
 
-  mkdir build && cd build
-  cmake .. && make
+    mkdir build && cd build
+    cmake .. && make
 
 The binary will be created in <build-folder>/bin
 
 # Packaging
 
 1. On Linux:
-  make package
+   
+    make package
 
   To force deb:
+  
     cpack -G DEB
 
-  To force rom:
+  To force rpm:
+  
     cpack -G RPM
 
-2. On Mac: (gcc, g++, make, cmake, qt 4.6+ etc. must be installed...)
-  cd contribs
-  sh contribs-mac.sh
+2. On Mac: (gcc, g++, make, cmake, qt etc. must be installed...)
+
+    cd contribs
+    sh contribs-mac.sh
+
   This will by default create a Mac Bundle, vlmc.app in /build/bin
 
   To create a dmg image:
+  
     Uncomment #dmg in /src/CMakeLists.txt, at the end of the file.
     and follow the build process, the dmg will be created in /build/bin
 
-3. To cross-compile and package on linux for Windows: (mingw, wine, nsis must be installed...)
+3. To cross-compile and package on Linux for Windows: (mingw, wine, nsis must be installed...)
 
-  cd contribs
-  sh contribs.sh
-  cd ..
-  mkdir win32 && cd win32
-  cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-win32.cmake -DQT_MOC_EXECUTABLE=../contribs/tools/moc.exe ..
-  make
-  make installer
+```
+    cd contribs
+    sh contribs.sh
+    cd ..
+    mkdir win32 && cd win32
+    cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-win32.cmake -DQT_MOC_EXECUTABLE=../contribs/tools/moc.exe ..
+    make
+    make installer
+```
 
-  This will create an .exe installer in /win32/bin
-
+  This will create an .exe installer in the bin folder under win.
+  
 ## Distribution via Launchpad
 
 Launchpad.net provides PPA facility for distribution of debian builds.
 The /debian folder holds debian package building rules.
 
 You build and upload your source pkgs by:
-  debuild -k<pgp key ID>
-  debuild -k<pgp key ID> -S -sa # creates only the source pkg
-  dput ppa:<ppa-id>/<pkg> <source.changes>
+
+    debuild -k<pgp key ID>
+    debuild -k<pgp key ID> -S -sa # creates only the source pkg
+    dput ppa:<ppa-id>/<pkg> <source.changes>
 
 To add/install the pkg, one can do:
-  sudo add-apt-repository ppa:<ppa-id>/<pkg>
+
+    sudo add-apt-repository ppa:<ppa-id>/<pkg>
   sudo apt-get update
   sudo apt-get install <pkg>
