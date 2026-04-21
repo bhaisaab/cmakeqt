@@ -1,42 +1,21 @@
-About
-=====
+# About
+
 CMakeQt, a cross-platform CMake build system template for C++/Qt based projects.
-Copyright Rohit Yadav <rohit@scaleninja.com>, 2009-2015
+Copyright Rohit Yadav <rohit@scaleninja.com>, 2009-2026.
 
-Feel free to use and modify it according to your project. For reporting bugs,
-feature requests and just to say hi, contact the author.
+Feel free to use and modify it as needed for your project. For reporting bugs,
+feature requests contact: https://github.com/scaleninja/cmakeqt
 
-WWW
-===
-https://github.com/bhaisaab/cmakeqt
-https://www.ohloh.net/p/cmakeqt
+# Projects using CMakeQT
 
-History
-=======
-Initially the build system was just for VLMC, but I thought why not make a
-build system template that anyone can hack easily and use in their own projects,
-thus CMakeQt!
+* VLMC: http://git.videolan.org/?p=vlmc.git;a=summary
+* CernVM Installer: http://cernvm.cern.ch/portal/cernvm-installer
+* Blender: http://www.blender.org
+* Phonon-backend-vlc: http://gitorious.org/phonon/phonon-vlc
+* Tano Player: http://sourceforge.net/projects/tano/
+* Graffiti: https://github.com/bhaisaab/graffiti
 
-Some projects that use CMakeQt (or parts of source code)
-==============================
-
-- VLMC: http://git.videolan.org/?p=vlmc.git;a=summary
-- CernVM Installer: http://cernvm.cern.ch/portal/cernvm-installer
-- Blender: http://www.blender.org
-- Phonon-backend-vlc: http://gitorious.org/phonon/phonon-vlc
-- Tano Player: http://sourceforge.net/projects/tano/
-- Graffiti: https://github.com/bhaisaab/graffiti
-
-Source
-======
-
-Github: http://github.com/bhaisaab/cmakeqt
-
-Grab the latest source:
-  git clone git://github.com/bhaisaab/cmakeqt.git
-
-Translations
-============
+# Translations
 
 Languages that only needed to be shipped can be selected using LANGS, for example:
   cmake -DLANGS="en;fr" ..
@@ -51,18 +30,14 @@ where, lang token can be fr_FR etc.
 If you add a new language translation, simple add the token to the lang list in ts/CMakeLists.txt
 For testing I've added a french translation, which is explicitly ran in src/main.cpp
 
-Hack hack hack!
-
-Building
-========
+# Building
 
   mkdir build && cd build
   cmake .. && make
 
 The binary will be created in <build-folder>/bin
 
-Packaging
-=========
+# Packaging
 
 1. On Linux:
   make package
@@ -94,8 +69,7 @@ Packaging
 
   This will create an .exe installer in /win32/bin
 
-Distribution via Launchpad
-==========================
+## Distribution via Launchpad
 
 Launchpad.net provides PPA facility for distribution of debian builds.
 The /debian folder holds debian package building rules.
