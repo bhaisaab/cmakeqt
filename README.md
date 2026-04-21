@@ -1,10 +1,12 @@
 # About
 
 CMakeQt, a cross-platform CMake build system template for C++/Qt based projects.
+
 Copyright Rohit Yadav <rohit@scaleninja.com>, 2009-2026.
 
-Feel free to use and modify it as needed for your project. For reporting bugs,
-feature requests contact: https://github.com/scaleninja/cmakeqt
+For reporting bugs, feature requests contact: https://github.com/scaleninja/cmakeqt
+
+Feel free to use and modify it as needed for your project.
 
 # Projects using CMakeQT
 
